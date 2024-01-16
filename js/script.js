@@ -17,17 +17,14 @@ for (i=0; i<pictures.length; i++) {
 
     // creo la variabile displayClass che è vuota solo per la slide con focus
     let displayClass = 'd-none';
-    if (i == slideFocus) displayClass = '';
+    if (i == slideFocus) displayClass = 'd-block';
 
-    // 3. per ogni ciclo devo creare la stringa
-    let slideHtml = `
+    // 3. per ogni ciclo devo creare la stringa ed aggiungerla alle altre precedentemente create
+    slidesHtml += `
     <div class="slide ${displayClass}">
         <img src="./img/0${picture}.webp" alt="picture 0${picture}">
     </div>`;
-
-    // 4.  per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create
-    slidesHtml += slideHtml;
-
+    
 }
 
 // 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper

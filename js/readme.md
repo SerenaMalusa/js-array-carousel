@@ -5,12 +5,13 @@ Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specif
 Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.  
 
 ##### Svolgimento
-1. creo ciclo che conta da 1 a 5
-2. per ogni ciclo devo creare la seguente stringa (dove i sta per l'indice del ciclo): 
+1. creo array che contiene i nomi delle immagini che devo inserire
+2. creo ciclo che conta da 0 a lunghezza dell'array-1
+3. per ogni ciclo devo creare la seguente stringa (dove i sta per l'indice del ciclo): 
     ```
     <div class="slide">
-        <img src="./img/0${i}.webp" alt="picture 0${i}">
+        <img src="./img/0${elemento con indice i-1}.webp" alt="picture 0${elemento con indice i-1}">
     </div>
     ``` 
-3.  per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create ed inserirle nell'html del wrapper
-
+4.  per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create
+5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper

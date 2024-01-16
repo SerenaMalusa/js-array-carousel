@@ -1,0 +1,77 @@
+/************
+    RESET
+************/
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+/****************
+    CUSTOM PROPS
+****************/
+:root {
+    --wrapper-h: 500px;
+    --wrapper-w: 1000px;
+}
+
+/************
+    WRAPPER
+************/
+.wrapper {
+    margin-top: calc((100vh - var(--wrapper-h)) / 2);
+    height: var(--wrapper-h);
+    width: var(--wrapper-w);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.slide {
+    height: 100%;
+    width: 100%;
+}
+
+.slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/**************
+    ARROWS
+**************/
+.arrow {
+    border-radius: 50%;
+    height: 38px;
+    aspect-ratio: 1;
+    background-color: rgba(187, 197, 197, 0.581);
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 35px;
+
+    position: absolute;
+    right: 50%;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    background-color: rgba(187, 197, 197, 0.937);
+
+}
+
+#arrow-prev {
+    top: 0;
+    transform: translate(50%, 30%);
+}
+
+#arrow-next {
+    bottom: 0;
+    transform: translate(50%, -30%);
+}

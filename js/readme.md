@@ -29,5 +29,5 @@ c. prendo la slide con indice slideFocus e tolgo la classe d-block
 d. incremento slideFocus
 e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block
 f. se slideFocus è >= alla lunghezza di slides 
-f1. nascondo il bottone 
-f2. slideFocus diventa 0
+f1. slideFocus diventa 0
+g. faccio lo stesso per prev button

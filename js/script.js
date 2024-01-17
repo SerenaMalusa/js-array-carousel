@@ -30,6 +30,8 @@ for (i=0; i<pictures.length; i++) {
 // 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
 slidesEl.innerHTML = slidesHtml;
 
+/********* MILESTONE 3 **********/
+
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
 const slides = document.querySelectorAll('.slide');
 const nextBtnEL = document.querySelector('#arrow-next');
@@ -49,7 +51,7 @@ nextBtnEL.addEventListener('click', function () {
     // f. se slideFocus è >= alla lunghezza di slides 
     if (slideFocus >= slides.length) {
         
-        // f2. slideFocus diventa 0
+        // f1. slideFocus diventa 0
         slideFocus = 0;
         
     }
@@ -61,10 +63,29 @@ nextBtnEL.addEventListener('click', function () {
 
 })
 
-// al click de bottone prev
+// g. faccio lo stesso per prev button
 prevBtnEl.addEventListener('click', function () {
 
-    console.log('clicK');
+    // prendo la slide con indice slideFocus e tolgo la classe d-block e aggiungo d-none
+    const oldSlide = slides[slideFocus];
+    oldSlide.classList.add('d-none');
+    oldSlide.classList.remove('d-block');
+
+    // decremento slideFocus
+    slideFocus --;
+    
+    // se slideFocus è <= 0
+    if (slideFocus <= 0) {
+        
+        // f1. slideFocus diventa = lunghezza array -1
+        slideFocus = slides.length - 1;
+        
+    }
+
+    // e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
+    const newSlide = slides[slideFocus];
+    newSlide.classList.remove('d-none');
+    newSlide.classList.add('d-block');
 
 })
 

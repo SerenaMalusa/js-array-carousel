@@ -40,12 +40,19 @@ nextBtnEL.addEventListener('click', function () {
 
     // c. prendo la slide con indice slideFocus e tolgo la classe d-block e aggiungo d-none
     const oldSlide = slides[slideFocus];
-    console.log(oldSlide);
     oldSlide.classList.add('d-none');
     oldSlide.classList.remove('d-block');
 
     // d. incremento slideFocus
     slideFocus ++;
+    
+    // f. se slideFocus è >= alla lunghezza di slides 
+    if (slideFocus >= slides.length) {
+        
+        // f2. slideFocus diventa 0
+        slideFocus = 0;
+        
+    }
 
     // e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
     const newSlide = slides[slideFocus];

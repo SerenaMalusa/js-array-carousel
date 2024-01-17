@@ -82,7 +82,7 @@ prevBtnEl.addEventListener('click', function () {
         
     }
 
-    // e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
+    // prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
     const newSlide = slides[slideFocus];
     newSlide.classList.remove('d-none');
     newSlide.classList.add('d-block');

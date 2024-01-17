@@ -16,10 +16,12 @@ Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella mile
 4.  per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create
 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
 
-#### MILESTONE 3
+#### MILESTONE 3 & BONUS 1
 ##### Traccia
 
 Al click dell'utente sulle frecce, il programma cambierà l'immagine attiva, che quindi verrà visualizzata al posto della precedente.  
+Aggiungere il ciclo infinito del carosello.  
+Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all'immagine precedente, dovrà comparire l'ultima immagine dell'array e viceversa
 
 #### Svolgimento
 

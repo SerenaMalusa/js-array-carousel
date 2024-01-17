@@ -6,7 +6,7 @@ let slidesHtml = '';
 // 1. creo array che contiene i nomi delle immagini che devo inserire
 const pictures = ['1','2','3','4','5'];
 // creo la variabile che determina la slide con focus
-let slideFocus = 3;
+let slideFocus = 0;
 
 // 2. creo ciclo che conta da 1 a lunghezza dell'array
 for (i=0; i<pictures.length; i++) {
@@ -31,14 +31,26 @@ for (i=0; i<pictures.length; i++) {
 slidesEl.innerHTML = slidesHtml;
 
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
-const slides = document.querySelectorAll('slide');
+const slides = document.querySelectorAll('.slide');
 const nextBtnEL = document.querySelector('#arrow-next');
 const prevBtnEl = document.querySelector('#arrow-prev');
 
 // b. al click del bottone next
 nextBtnEL.addEventListener('click', function () {
 
-    console.log('clicK');
+    // c. prendo la slide con indice slideFocus e tolgo la classe d-block e aggiungo d-none
+    const oldSlide = slides[slideFocus];
+    console.log(oldSlide);
+    oldSlide.classList.add('d-none');
+    oldSlide.classList.remove('d-block');
+
+    // d. incremento slideFocus
+    slideFocus ++;
+
+    // e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
+    const newSlide = slides[slideFocus];
+    newSlide.classList.remove('d-none');
+    newSlide.classList.add('d-block');
 
 })
 

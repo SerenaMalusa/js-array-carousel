@@ -3,7 +3,7 @@
 ************/
 * {
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -17,19 +17,17 @@ img {
 :root {
     --wrapper-h: 500px;
     --wrapper-w: 1000px;
+    --thumb-l: 150px;
 }
 
 /************
     WRAPPER
 ************/
 .wrapper {
-    margin-top: calc((100vh - var(--wrapper-h)) / 2);
     height: var(--wrapper-h);
-    width: var(--wrapper-w);
-
-    position: relative;
-
+    width: calc(var(--wrapper-w) - var(--thumb-l));
     overflow: hidden;
+    position: relative;
 }
 
 .slides,
@@ -74,4 +72,24 @@ img {
 #arrow-next {
     bottom: 0;
     transform: translate(50%, -30%);
+}
+
+/**************
+    THUMBNAILS
+**************/
+.container {
+    margin-top: calc((100vh - var(--wrapper-h)) / 2);
+    height: var(--wrapper-h);
+    width: var(--wrapper-w);
+}
+
+.thumbnail {
+    width: var(--thumb-l);
+    height: calc(var(--wrapper-h) / 5);
+}
+
+.thumbnail img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

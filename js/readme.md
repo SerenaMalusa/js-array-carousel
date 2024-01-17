@@ -15,3 +15,17 @@ Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella mile
     ``` 
 4.  per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create
 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
+
+#### MILESTONE 3
+##### Traccia
+
+Al click dell'utente sulle frecce, il programma cambierà l'immagine attiva, che quindi verrà visualizzata al posto della precedente.  
+
+#### Svolgimento
+
+a. prendo tutte le slides
+b. al click del bottone next
+c. prendo la slide con indice slideFocus e tolgo la classe d-block
+d. incremento slideFocus
+e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block
+f.

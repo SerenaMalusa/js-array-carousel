@@ -36,6 +36,18 @@ g. faccio lo stesso per prev button
 
 
 #### BONUS 2
+#### Traccia
 Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell'immagine grande attiva, come nello screenshot proposto.  
 Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all'immagine attiva, che invece avrà un bordo colorato.  
-Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.  
+Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva. 
+
+#### Svolgimento
+aa. nel ciclo che crea le immagini creo altra stringa (dove i sta per l'indice del ciclo): 
+    ```
+
+    <div class="thumbnail">
+        <img src="./img/0${elemento con indice i-1}.webp" alt="picture 0${elemento con indice i-1}">
+    </div>
+    ``` 
+ab. per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create
+ac dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper

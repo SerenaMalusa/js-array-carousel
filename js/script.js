@@ -1,7 +1,9 @@
-// prendo l'elemento html wrapper dove andrò ad inserire le slides
+// prendo l'elemento html wrapper dove andrò ad inserire le slides e quello dei thumbnails
 const slidesEl = document.querySelector('.slides');
-// creo variabile che conterrà la stringa html da inserire in pagina
+const thumbnailsEl = document.querySelector('.thumbanils');
+// creo variabile che conterrà le stringa html da inserire in pagina
 let slidesHtml = '';
+let thumbnailsHtml = '';
 
 // 1. creo array che contiene i nomi delle immagini che devo inserire
 const pictures = ['1','2','3','4','5'];
@@ -14,14 +16,25 @@ for (i=0; i<pictures.length; i++) {
     // mi prendo il singolo elemento il cui indice corrisponda all'iterazione del ciclo
     let picture = pictures[i];
 
-    // creo la variabile displayClass che è diversa solo per la slide con focus
+    // creo la variabile displayClass e active class che sono diverse solo per la slide con focus
     let displayClass = 'd-none';
-    if (i == slideFocus) displayClass = 'd-block';
+    let activeClass = '';
+    if (i == slideFocus) {
+        displayClass = 'd-block';
+        activeClass = 'active';
+    }
 
-    // 3. per ogni ciclo devo creare la stringa 
+    // 3. per ogni ciclo devo creare la stringa per le slides 
     // 4. ed aggiungerla alle altre precedentemente create
     slidesHtml += `
     <div class="slide ${displayClass}">
+        <img src="./img/0${picture}.webp" alt="picture 0${picture}">
+    </div>`;
+
+    // aa per ogni ciclo devo creare la stringa per i thumbnails
+    // ab ed aggiungerla alle altre precedentemente create
+    thumbnailsHtml += `
+    <div class="thumbnail ${activeClass}">
         <img src="./img/0${picture}.webp" alt="picture 0${picture}">
     </div>`;
 
@@ -29,6 +42,7 @@ for (i=0; i<pictures.length; i++) {
 
 // 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
 slidesEl.innerHTML = slidesHtml;
+thumbnailsEl.innerHTML = thumbnailsHtml;
 
 /********* MILESTONE 3 **********/
 

@@ -48,24 +48,30 @@ for (i=0; i<pictures.length; i++) {
     thumbnail.innerHTML = `<img src="./img/0${picture}.webp" alt="picture 0${picture}">`;
     thumbnailsEl.append(thumbnail);
 
+    // prendo tutti i thumbnail creati
     const thumbnails = document.querySelectorAll('.thumbnail');
-    
+
     // al click del thumbnail
     thumbnail.addEventListener('click', function () {
-            
+          
+        // prendo slide attiva e cambio il display
         const oldSlide = slides[slideFocus];
         oldSlide.classList.remove('d-block');
         oldSlide.classList.add('d-none');
 
+        // prendo thumbnail attivo e levo classe active
         const oldThumnail = thumbnails[slideFocus];
         oldThumnail.classList.remove('active');
 
+        // assegno a slidefocus il valore dell'attributo data index che identifica il thumbnail
         slideFocus = this.getAttribute('data-index'); 
 
+        // prendo la slide con indice =  nuovo slidefocus e cambio il display
         const newSlide = slides[slideFocus];
         newSlide.classList.add('d-block');
         newSlide.classList.remove('d-none');
 
+        // prendo il thumbnail con indice = nuovoslidefocus e aggiungo classe active
         const newThumnail = thumbnails[slideFocus];
         newThumnail.classList.add('active');
 

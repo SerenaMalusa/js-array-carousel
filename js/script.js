@@ -31,8 +31,6 @@ for (i=0; i<pictures.length; i++) {
 
 // 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
 slidesEl.innerHTML = slidesHtml;
-// thumbnailsEl.innerHTML = thumbnailsHtml;
-const slides = document.querySelectorAll('.slide');
 
 for (i=0; i<pictures.length; i++) {
 
@@ -50,46 +48,11 @@ for (i=0; i<pictures.length; i++) {
 
 }
 
-// EXTRA
-// prendo tutti i thumbnail creati
-const thumbnails = document.querySelectorAll('.thumbnail');
-
-for (let i=0; i<thumbnails.length; i++) {
-
-    const thumbnail = thumbnails[i];
-
-    // al click del thumbnail
-    thumbnail.addEventListener('click', function () {
-        
-        // prendo slide attiva e cambio il display
-        const oldSlide = slides[slideFocus];
-        oldSlide.classList.remove('d-block');
-        oldSlide.classList.add('d-none');
-
-        // prendo thumbnail attivo e levo classe active
-        const oldThumnail = thumbnails[slideFocus];
-        oldThumnail.classList.remove('active');
-
-        // assegno a slidefocus il valore dell'attributo data index che identifica il thumbnail
-        slideFocus = this.getAttribute('data-index'); 
-
-        // prendo la slide con indice =  nuovo slidefocus e cambio il display
-        const newSlide = slides[slideFocus];
-        newSlide.classList.add('d-block');
-        newSlide.classList.remove('d-none');
-
-        // prendo il thumbnail con indice = nuovoslidefocus e aggiungo classe active
-        const newThumnail = thumbnails[slideFocus];
-        newThumnail.classList.add('active');
-
-    })
-
-}
-
-
 /********* MILESTONE 3 **********/
 
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
+const slides = document.querySelectorAll('.slide');
+const thumbnails = document.querySelectorAll('.thumbnail');
 const nextBtnEL = document.querySelector('#arrow-next');
 const prevBtnEl = document.querySelector('#arrow-prev');
 
@@ -160,3 +123,37 @@ prevBtnEl.addEventListener('click', function () {
     newThumnail.classList.add('active');
 
 })
+
+/********* EXTRA **********/
+// prendo tutti i thumbnail creati
+for (let i=0; i<thumbnails.length; i++) {
+
+    const thumbnail = thumbnails[i];
+
+    // al click del thumbnail
+    thumbnail.addEventListener('click', function () {
+        
+        // prendo slide attiva e cambio il display
+        const oldSlide = slides[slideFocus];
+        oldSlide.classList.remove('d-block');
+        oldSlide.classList.add('d-none');
+
+        // prendo thumbnail attivo e levo classe active
+        const oldThumnail = thumbnails[slideFocus];
+        oldThumnail.classList.remove('active');
+
+        // assegno a slidefocus il valore dell'attributo data index che identifica il thumbnail
+        slideFocus = this.getAttribute('data-index'); 
+
+        // prendo la slide con indice =  nuovo slidefocus e cambio il display
+        const newSlide = slides[slideFocus];
+        newSlide.classList.add('d-block');
+        newSlide.classList.remove('d-none');
+
+        // prendo il thumbnail con indice = nuovoslidefocus e aggiungo classe active
+        const newThumnail = thumbnails[slideFocus];
+        newThumnail.classList.add('active');
+
+    })
+
+}

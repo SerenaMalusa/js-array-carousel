@@ -50,6 +50,7 @@ for (i=0; i<pictures.length; i++) {
 
 }
 
+// EXTRA
 // prendo tutti i thumbnail creati
 const thumbnails = document.querySelectorAll('.thumbnail');
 

@@ -48,12 +48,18 @@ for (i=0; i<pictures.length; i++) {
     thumbnail.innerHTML = `<img src="./img/0${picture}.webp" alt="picture 0${picture}">`;
     thumbnailsEl.append(thumbnail);
 
-    // prendo tutti i thumbnail creati
-    const thumbnails = document.querySelectorAll('.thumbnail');
+}
+
+// prendo tutti i thumbnail creati
+const thumbnails = document.querySelectorAll('.thumbnail');
+
+for (let i=0; i<thumbnails.length; i++) {
+
+    const thumbnail = thumbnails[i];
 
     // al click del thumbnail
     thumbnail.addEventListener('click', function () {
-          
+        
         // prendo slide attiva e cambio il display
         const oldSlide = slides[slideFocus];
         oldSlide.classList.remove('d-block');
@@ -76,13 +82,13 @@ for (i=0; i<pictures.length; i++) {
         newThumnail.classList.add('active');
 
     })
+
 }
 
 
 /********* MILESTONE 3 **********/
 
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
-const thumbnails = document.querySelectorAll('.thumbnail');
 const nextBtnEL = document.querySelector('#arrow-next');
 const prevBtnEl = document.querySelector('#arrow-prev');
 

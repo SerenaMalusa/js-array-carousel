@@ -74,10 +74,10 @@ prevBtnEl.addEventListener('click', function () {
     // decremento slideFocus
     slideFocus --;
     
-    // se slideFocus è <= -1
-    if (slideFocus <= -1) {
+    // se slideFocus è < 0
+    if (slideFocus < 0) {
         
-        // f1. slideFocus diventa = lunghezza array -1
+        // slideFocus diventa = lunghezza array -1
         slideFocus = slides.length - 1;
         
     }

@@ -86,6 +86,12 @@ img {
 .thumbnail {
     width: var(--thumb-l);
     height: calc(var(--wrapper-h) / 5);
+    filter: brightness(40%);
+}
+
+.active {
+    border: 3px solid rgb(184, 89, 238);
+    filter: brightness(100%);
 }
 
 .thumbnail img {

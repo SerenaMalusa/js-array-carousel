@@ -48,6 +48,7 @@ thumbnailsEl.innerHTML = thumbnailsHtml;
 
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
 const slides = document.querySelectorAll('.slide');
+const thumbnails = document.querySelectorAll('.thumbnail');
 const nextBtnEL = document.querySelector('#arrow-next');
 const prevBtnEl = document.querySelector('#arrow-prev');
 
@@ -58,6 +59,10 @@ nextBtnEL.addEventListener('click', function () {
     const oldSlide = slides[slideFocus];
     oldSlide.classList.add('d-none');
     oldSlide.classList.remove('d-block');
+
+    // ae. prendo il thumbnail con indice SlideFocus: tolgo la classe active
+    const oldThumnail = thumbnails[slideFocus];
+    oldThumnail.classList.remove('active');
 
     // d. incremento slideFocus
     slideFocus ++;
@@ -75,6 +80,10 @@ nextBtnEL.addEventListener('click', function () {
     newSlide.classList.remove('d-none');
     newSlide.classList.add('d-block');
 
+    // af. dopo l'incremento prendo il thumbnail con indice nuovo e aggiungo la classe active
+    const newThumnail = thumbnails[slideFocus];
+    newThumnail.classList.add('active');
+
 })
 
 // g. faccio lo stesso per prev button
@@ -84,6 +93,10 @@ prevBtnEl.addEventListener('click', function () {
     const oldSlide = slides[slideFocus];
     oldSlide.classList.add('d-none');
     oldSlide.classList.remove('d-block');
+
+    // ae. prendo il thumbnail con indice SlideFocus: tolgo la classe active
+    const oldThumnail = thumbnails[slideFocus];
+    oldThumnail.classList.remove('active');
 
     // decremento slideFocus
     slideFocus --;
@@ -100,6 +113,10 @@ prevBtnEl.addEventListener('click', function () {
     const newSlide = slides[slideFocus];
     newSlide.classList.remove('d-none');
     newSlide.classList.add('d-block');
+
+    // af. dopo il decremento prendo il thumbnail con indice nuovo e aggiungo la classe active
+    const newThumnail = thumbnails[slideFocus];
+    newThumnail.classList.add('active');
 
 })
 

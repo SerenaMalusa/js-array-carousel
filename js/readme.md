@@ -50,4 +50,10 @@ aa. nel ciclo che crea le immagini creo altra stringa (dove i sta per l'indice d
     </div>
     ``` 
 ab. per ogni ciclo devo aggiungere questa stringa alle altre precedentemente create
-ac dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
+ac. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
+
+ad. al click della freccia next
+ae. prendo il thumbnail con indice SlideFocus: tolgo la classe active
+af. dopo l'incremento prendo il thumbnail con indice nuovo e aggiungo la classe active
+
+ag. faccio lo stesso per la freccia prev

@@ -3,7 +3,7 @@ const slidesEl = document.querySelector('.slides');
 const thumbnailsEl = document.querySelector('.thumbanils');
 // creo variabile che conterrà le stringa html da inserire in pagina
 let slidesHtml = '';
-let thumbnailsHtml = '';
+//let thumbnailsHtml = '';
 
 // 1. creo array che contiene i nomi delle immagini che devo inserire
 const pictures = ['1','2','3','4','5'];
@@ -16,13 +16,9 @@ for (i=0; i<pictures.length; i++) {
     // mi prendo il singolo elemento il cui indice corrisponda all'iterazione del ciclo
     let picture = pictures[i];
 
-    // creo la variabile displayClass e active class che sono diverse solo per la slide con focus
+    // creo la variabile displayClass che è diverse solo per la slide con focus
     let displayClass = 'd-none';
-    let activeClass = '';
-    if (i == slideFocus) {
-        displayClass = 'd-block';
-        activeClass = 'active';
-    }
+    if (i == slideFocus) displayClass = 'd-block';
 
     // 3. per ogni ciclo devo creare la stringa per le slides 
     // 4. ed aggiungerla alle altre precedentemente create
@@ -31,23 +27,55 @@ for (i=0; i<pictures.length; i++) {
         <img src="./img/0${picture}.webp" alt="picture 0${picture}">
     </div>`;
 
-    // aa per ogni ciclo devo creare la stringa per i thumbnails
-    // ab ed aggiungerla alle altre precedentemente create
-    thumbnailsHtml += `
-    <div class="thumbnail ${activeClass}">
-        <img src="./img/0${picture}.webp" alt="picture 0${picture}">
-    </div>`;
-
 }
 
 // 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
 slidesEl.innerHTML = slidesHtml;
-thumbnailsEl.innerHTML = thumbnailsHtml;
+// thumbnailsEl.innerHTML = thumbnailsHtml;
+const slides = document.querySelectorAll('.slide');
+
+for (i=0; i<pictures.length; i++) {
+
+    // mi prendo il singolo elemento il cui indice corrisponda all'iterazione del ciclo
+    let picture = pictures[i];
+
+    // aa per ogni ciclo devo creare la stringa per i thumbnails
+    // ab ed aggiungerla alle altre precedentemente create
+    const thumbnail = document.createElement('div');
+    thumbnail.setAttribute('data-index',i);
+    thumbnail.classList.add('thumbnail');
+    if (i == slideFocus) thumbnail.classList.add('active');
+    thumbnail.innerHTML = `<img src="./img/0${picture}.webp" alt="picture 0${picture}">`;
+    thumbnailsEl.append(thumbnail);
+
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    // al click del thumbnail
+    thumbnail.addEventListener('click', function () {
+            
+        const oldSlide = slides[slideFocus];
+        oldSlide.classList.remove('d-block');
+        oldSlide.classList.add('d-none');
+
+        const oldThumnail = thumbnails[slideFocus];
+        oldThumnail.classList.remove('active');
+
+        slideFocus = this.getAttribute('data-index'); 
+
+        const newSlide = slides[slideFocus];
+        newSlide.classList.add('d-block');
+        newSlide.classList.remove('d-none');
+
+        const newThumnail = thumbnails[slideFocus];
+        newThumnail.classList.add('active');
+
+    })
+}
+
 
 /********* MILESTONE 3 **********/
 
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
-const slides = document.querySelectorAll('.slide');
 const thumbnails = document.querySelectorAll('.thumbnail');
 const nextBtnEL = document.querySelector('#arrow-next');
 const prevBtnEl = document.querySelector('#arrow-prev');
@@ -119,4 +147,3 @@ prevBtnEl.addEventListener('click', function () {
     newThumnail.classList.add('active');
 
 })
-

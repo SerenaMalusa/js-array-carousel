@@ -1,6 +1,6 @@
 
-function showNextSlide() {
-    
+function showNextSlide(goNext) {
+
     // c. prendo la slide con indice slideFocus e tolgo la classe d-block e aggiungo d-none
     const oldSlide = slides[slideFocus];
     oldSlide.classList.add('d-none');
@@ -10,16 +10,34 @@ function showNextSlide() {
     const oldThumnail = thumbnails[slideFocus];
     oldThumnail.classList.remove('active');
 
-    // d. incremento slideFocus
-    slideFocus ++;
-    
-    // f. se slideFocus è >= alla lunghezza di slides 
-    if (slideFocus >= slides.length) {
+    if (goNext) {
+
+        // d. incremento slideFocus
+        slideFocus ++;
         
-        // f1. slideFocus diventa 0
-        slideFocus = 0;
+        // f. se slideFocus è >= alla lunghezza di slides 
+        if (slideFocus >= slides.length) {
+            
+            // f1. slideFocus diventa 0
+            slideFocus = 0;
+            
+        }
+
+    } else {
+
+        // decremento slideFocus
+        slideFocus --;
         
+        // se slideFocus è < 0
+        if (slideFocus < 0) {
+            
+            // slideFocus diventa = lunghezza array -1
+            slideFocus = slides.length - 1;
+            
+        }
+
     }
+    
 
     // e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
     const newSlide = slides[slideFocus];

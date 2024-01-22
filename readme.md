@@ -37,3 +37,23 @@ Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni
 Potremo quindi usarli come "template".
 2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
+
+## Esercizio di oggi (22/01/24): JS Carousel mono-array
+
+nome repo: `js-array-carousel`
+
+Riprendiamo in mano il carosello.
+
+### Milestone 1:
+
+aggiungere funzionalità sul carosello in modo che ogni 3 secondi lo slider scorra all'immagine successiva.    
+
+### Milestone 2:
+
+Aggiungere il ciclo infinito del carosello (se non è stato fatto). Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all'immagine precedente, dovrà comparire l'ultima immagine dell'array e viceversa.
+
+### Bonus 1:
+Creare una funzione goToSlide(n)  in grado di gestire il cambio di slide. Utilizzarla sul click delle frecce e nell'interval.
+
+### Bonus 2:
+Lo scorrimento automatico delle immagini si blocca quando l'utente mette il mouse sopra il carosello e riparte quando il mouse esce fuori.

@@ -1,5 +1,5 @@
 
-function showNextSlide(goNext) {
+function showNextSlide() {
 
     // c. prendo la slide con indice slideFocus e tolgo la classe d-block e aggiungo d-none
     const oldSlide = slides[slideFocus];
@@ -37,7 +37,6 @@ function showNextSlide(goNext) {
         }
 
     }
-    
 
     // e. prendo la slide con indice nuovo slideFocus e aggiungo la classe d-block e rimuovo d-none
     const newSlide = slides[slideFocus];
@@ -47,5 +46,13 @@ function showNextSlide(goNext) {
     // af. dopo l'incremento prendo il thumbnail con indice nuovo e aggiungo la classe active
     const newThumnail = thumbnails[slideFocus];
     newThumnail.classList.add('active');
+
+}
+
+function activateCicle () {
+
+    const cicle = setInterval (showNextSlide, 3000);
+
+    return cicle;
 
 }

@@ -1,4 +1,5 @@
 // prendo l'elemento html wrapper dove andrò ad inserire le slides e quello dei thumbnails
+const containerEl = document.querySelector('.container');
 const slidesEl = document.querySelector('.slides');
 const thumbnailsEl = document.querySelector('.thumbanils');
 // creo variabile che conterrà le stringa html da inserire in pagina
@@ -62,9 +63,11 @@ nextBtnEL.addEventListener('click', function () {
 // g. faccio lo stesso per prev button
 prevBtnEl.addEventListener('click', function () {
 
-    goNext = false;
+    goNext = !goNext;
     
     showNextSlide(goNext);
+
+    goNext = !goNext;
 
 })
 
@@ -103,5 +106,20 @@ for (let i=0; i<thumbnails.length; i++) {
 }
 
 /********* 22/01/24 MILESTONE 1 **********/
+let carousel = activateCicle ();
 
-const carousel = setInterval (showNextSlide, 3000);
+/********* 22/01/24 BONUS 2 **********/
+containerEl.addEventListener('mouseenter', function () {
+
+    clearInterval (carousel);
+    // console.log('sei nel container');
+
+})
+
+containerEl.addEventListener('mouseleave', function () {
+    
+    goNext = !goNext;
+    carousel = activateCicle();
+    // console.log('sei uscito dal container');
+
+})

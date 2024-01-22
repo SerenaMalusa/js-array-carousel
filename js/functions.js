@@ -1,4 +1,6 @@
-
+/**
+ * funzione per passare alla slide successiva
+ */
 function showNextSlide() {
 
     // c. prendo la slide con indice slideFocus e tolgo la classe d-block e aggiungo d-none
@@ -10,7 +12,8 @@ function showNextSlide() {
     const oldThumnail = thumbnails[slideFocus];
     oldThumnail.classList.remove('active');
 
-    if (goNext) {
+    // se la direzione in cui vanno le slides è verso il basso
+    if (goDown) {
 
         // d. incremento slideFocus
         slideFocus ++;
@@ -23,6 +26,7 @@ function showNextSlide() {
             
         }
 
+    // se la direzione in cui vanno le slide non è verso il basso
     } else {
 
         // decremento slideFocus
@@ -49,6 +53,9 @@ function showNextSlide() {
 
 }
 
+/**
+ * funzione che attiva il setInterval e avvia il carosello
+ */
 function activateCicle () {
 
     const cicle = setInterval (showNextSlide, 3000);

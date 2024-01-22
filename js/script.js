@@ -11,7 +11,8 @@ const pictures = ['1','2','3','4','5'];
 // creo la variabile che determina la slide con focus
 let slideFocus = 0;
 
-let goNext = true;
+// creo variabile globale che gestisce la direzione in cui vengono mostrate le slides
+let goDown = true;
 
 // 2. creo ciclo che conta da 1 a lunghezza dell'array
 for (i=0; i<pictures.length; i++) {
@@ -44,7 +45,6 @@ for (i=0; i<pictures.length; i++) {
 // 5. dopo la fine del ciclo devo stampare la stringa completa nell'html del wrapper
 slidesEl.innerHTML = slidesHtml;
 
-
 /********* MILESTONE 3 **********/
 
 // a. prendo tutte le slides e gli altri elementi che mi servono dal dom
@@ -56,18 +56,21 @@ const prevBtnEl = document.querySelector('#arrow-prev');
 // b. al click del bottone next
 nextBtnEL.addEventListener('click', function () {
 
-    showNextSlide(goNext);
+    goDown = true;
+    showNextSlide(goDown);
 
 })
 
 // g. faccio lo stesso per prev button
 prevBtnEl.addEventListener('click', function () {
 
-    goNext = !goNext;
+    // le slide scorrono verso l'alto per cui cambio direzione
+    goDown = false;
     
-    showNextSlide(goNext);
+    showNextSlide(goDown);
 
-    goNext = !goNext;
+    // rimetto la direzione verso il basso
+    goDown = true;
 
 })
 
@@ -106,9 +109,11 @@ for (let i=0; i<thumbnails.length; i++) {
 }
 
 /********* 22/01/24 MILESTONE 1 **********/
+// attivo il carosello al caricamento della pagina
 let carousel = activateCicle ();
 
 /********* 22/01/24 BONUS 2 **********/
+// come entro con il mouse nel container fermo il carosello
 containerEl.addEventListener('mouseenter', function () {
 
     clearInterval (carousel);
@@ -116,9 +121,11 @@ containerEl.addEventListener('mouseenter', function () {
 
 })
 
+// riattivo il carosello quando esco dal container
 containerEl.addEventListener('mouseleave', function () {
     
-    goNext = !goNext;
+    // cambio direzione alla funzione che mostra la slide successiva
+    goDown = !goDown;
     carousel = activateCicle();
     // console.log('sei uscito dal container');
 
